@@ -21,15 +21,17 @@
     display: flex;
     flex: 1;
     max-width: 100%;
-
+    gap: 40px;
+    
+    
     @include mobile {
       max-width: 100%;
       flex-direction: column;
+      gap: 20px;
     }
   }
 
   &__title {
-    margin-bottom: $spacing-lg;
     max-width: 640px;
   }
 
@@ -38,9 +40,8 @@
   }
 
   &__image {
+    display: flex;
     flex: 1;
-    max-width: 547px;
-    height: 686px;
     overflow: hidden;
 
     @include mobile {

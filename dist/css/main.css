@@ -915,6 +915,151 @@ body.menu-open {
   color: #525252;
 }
 
+.gallery-slider {
+  padding: 96px 0;
+  background-color: #ffffff;
+}
+.gallery-slider__content {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.gallery-slider__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+@media (max-width: 767px) {
+  .gallery-slider__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+.gallery-slider__title {
+  font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #2b2b2b;
+  margin: 0;
+  max-width: 421px;
+}
+@media (max-width: 767px) {
+  .gallery-slider__title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .gallery-slider__title {
+    max-width: 100%;
+  }
+}
+.gallery-slider__navigation {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.gallery-slider__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 6px 12px;
+}
+.gallery-slider__btn:hover {
+  background-color: #e5e5e5;
+  transform: translateY(-1px);
+}
+.gallery-slider__btn:active {
+  transform: translateY(0);
+}
+.gallery-slider__btn svg {
+  width: 24px;
+  height: 24px;
+  color: #404040;
+  transition: color 0.15s ease;
+}
+.gallery-slider__btn:hover svg {
+  color: #2b2b2b;
+}
+.gallery-slide {
+  position: relative;
+  width: 100%;
+  height: 659px;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.gallery-slide:hover {
+  transform: scale(1.02);
+}
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-slide:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-swiper {
+  width: 100%;
+}
+.gallery-swiper .swiper-slide {
+  height: auto;
+}
+.gallery-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+@media (max-width: 767px) {
+  .gallery-slider {
+    padding: 64px 0;
+  }
+  .gallery-slider__content {
+    gap: 48px;
+  }
+  .gallery-slide {
+    height: 400px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery-slide {
+    height: 500px;
+  }
+}
+.gallery-slider--dark {
+  background-color: #1c1b1f;
+}
+.gallery-slider--dark .gallery-slider__title {
+  color: #ffffff;
+}
+.gallery-slider--dark .gallery-slider__btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gallery-slider--dark .gallery-slider__btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.gallery-slider--dark .gallery-slider__btn svg {
+  color: #ffffff;
+}
+.gallery-slider--dark .gallery-slider__btn:hover svg {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .about {
   padding: 80px 0;
   background-color: #ffffff;
@@ -935,24 +1080,24 @@ body.menu-open {
   display: flex;
   flex: 1;
   max-width: 100%;
+  gap: 40px;
 }
 @media (max-width: 767px) {
   .about__text {
     max-width: 100%;
     flex-direction: column;
+    gap: 20px;
   }
 }
 .about__title {
-  margin-bottom: 24px;
   max-width: 640px;
 }
 .about__description {
   max-width: 640px;
 }
 .about__image {
+  display: flex;
   flex: 1;
-  max-width: 547px;
-  height: 686px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
@@ -1713,6 +1858,14 @@ img {
   width: 100%;
 }
 
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
 .form-group {
   margin-bottom: 16px;
 }
@@ -2108,6 +2261,19 @@ img {
 }
 .contact__detail span {
   color: #2b2b2b;
+}
+
+.gallery-slider__title {
+  font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #2b2b2b;
+}
+@media (max-width: 767px) {
+  .gallery-slider__title {
+    font-size: 24px;
+  }
 }
 
 .partners__title {

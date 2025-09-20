@@ -7,6 +7,7 @@
 @use 'components/services-header';
 @use 'components/services-accordion';
 @use 'components/services-page';
+@use 'components/gallery-slider';
 @use 'components/about';
 @use 'components/partners';
 @use 'components/contact';
@@ -98,6 +99,14 @@ img {
   &--full {
     width: 100%;
   }
+}
+
+.pb-0{
+  padding-bottom: 0!important;
+}
+
+.flex-column{
+  flex-direction: column!important;
 }
 
 // Form elements
@@ -421,6 +430,14 @@ img {
     span {
       color: $primary-color;
     }
+  }
+}
+
+// Gallery Slider text styles - согласно дизайну
+.gallery-slider {
+  &__title {
+    @include heading-2;
+    color: $primary-color;
   }
 }
 
