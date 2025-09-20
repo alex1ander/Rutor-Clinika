@@ -650,6 +650,17 @@ body.menu-open {
 .services-accordion__item:hover {
   background-color: rgba(82, 82, 82, 0.02);
 }
+.services-accordion__item .services-accordion__toggle {
+  position: relative;
+}
+.services-accordion__item .services-accordion__icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
 .services-accordion__item.is-open .services-accordion__content {
   padding: 0 0 36px 0;
 }
@@ -658,8 +669,8 @@ body.menu-open {
     padding: 0 0 24px 0;
   }
 }
-.services-accordion__item.is-open .services-accordion__icon {
-  transform: rotate(45deg);
+.services-accordion__item.is-open .services-accordion__icon.rotate {
+  transform: rotate(90deg);
 }
 .services-accordion__header {
   display: flex;
