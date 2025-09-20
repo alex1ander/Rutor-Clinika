@@ -1,0 +1,274 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Services Accordion Component
+.services-accordion {
+  &__item {
+    border-bottom: 1px solid #d1d1d1;
+    position: relative;
+    transition: all $transition-fast;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba($neutral-600, 0.02);
+    }
+
+    // Open state
+    &.is-open {
+      .services-accordion__content {
+        padding: 0 0 36px 0;
+
+        @include mobile {
+          padding: 0 0 24px 0;
+        }
+      }
+
+      .services-accordion__icon {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    padding: 36px 8px;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: rgba($neutral-600, 0.02);
+    }
+
+    @include tablet {
+      padding: 24px 8px;
+      flex-direction: column;
+      align-items: flex-start;
+
+
+      display: grid; 
+      gap:20px;
+      justify-items: center;
+      grid-template-areas: 
+        "number name btn"
+        "content content content"; 
+    }
+    @include mobile {
+      padding: 24px 8px;
+      flex-direction: column;
+      align-items: flex-start;
+
+
+      display: grid; 
+      gap:20px;
+      justify-items: center;
+      grid-template-areas: 
+        "number name btn"
+        "content content content"; 
+    }
+  }
+
+.services-accordion__content { grid-area: content; }
+.services-accordion__number { grid-area: number; }
+.services-accordion__title { grid-area: name; }
+.services-accordion__actions { grid-area: btn; }
+
+  &__number {
+    font-family: $font-family-primary;
+    font-size: 32px;
+    font-weight: $font-weight-normal;
+    line-height: 1.2;
+    color: $secondary-color;
+    min-width: 60px;
+    margin-right: 250px;
+
+    @include mobile {
+      font-size: 24px;
+      margin-right: 20px;
+      min-width: 40px;
+      order: 1; // Номер первым
+    }
+  }
+
+  &__title {
+    font-family: $font-family-primary;
+    font-size: 24px;
+    font-weight: $font-weight-medium;
+    line-height: 1.1;
+    color: $neutral-950;
+    margin-right: 20px;
+
+    @include mobile {
+      font-size: 18px;
+      order: 2; // Название вторым
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+      background-color: rgba($neutral-600, 0.1);
+    }
+
+    &:focus {
+      outline: 2px solid $neutral-600;
+      outline-offset: 2px;
+    }
+
+    @include mobile {
+      order: 4; // Кнопка последней
+      align-self: flex-end; // Выравнивание по правому краю
+      margin-top: 8px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    color: $primary-color;
+    transition: transform $transition-fast;
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $transition-normal ease-in-out;
+    padding: 0;
+    margin-left: 0;
+    flex: 1;
+    margin-right: 20px;
+
+    @include mobile {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 16px;
+      order: 3; // Контент будет последним в мобильной версии
+    }
+  }
+
+  &__description {
+    margin-bottom: 24px;
+
+    p {
+      font-family: $font-family-primary;
+      font-size: 16px;
+      font-weight: $font-weight-normal;
+      line-height: 1.5;
+      color: $secondary-color;
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 36px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  // Variants
+  &--compact {
+    .services-accordion__header {
+      padding: 24px 8px;
+
+      @include mobile {
+        padding: 20px 8px;
+      }
+    }
+
+    .services-accordion__number {
+      font-size: 24px;
+      margin-right: 20px;
+
+      @include mobile {
+        font-size: 20px;
+        margin-right: 16px;
+      }
+    }
+
+    .services-accordion__title {
+      font-size: 18px;
+
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &--minimal {
+    .services-accordion__item {
+      border-bottom: 1px solid rgba($neutral-600, 0.2);
+    }
+
+    .services-accordion__header {
+      padding: 32px 8px;
+    }
+  }
+
+  &--dark {
+    .services-accordion__item {
+      border-bottom-color: rgba($white, 0.2);
+
+      &:hover {
+        background-color: rgba($white, 0.05);
+      }
+    }
+
+    .services-accordion__title {
+      color: $white;
+    }
+
+    .services-accordion__description p {
+      color: rgba($white, 0.8);
+    }
+
+    .services-accordion__icon {
+      color: $white;
+    }
+
+    .services-accordion__toggle:hover {
+      background-color: rgba($white, 0.1);
+    }
+  }
+}
+
+// Individual accordion item variants
+.services-accordion-item {
+  &--featured {
+    .services-accordion__header {
+      background-color: rgba($accent-color, 0.05);
+      border-left: 4px solid $accent-color;
+    }
+
+    .services-accordion__number {
+      color: $accent-color;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+
+    .services-accordion__header {
+      cursor: not-allowed;
+    }
+  }
+}

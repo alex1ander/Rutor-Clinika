@@ -1,0 +1,78 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Services Header Component
+.services-header {
+  text-align: center;
+  margin-bottom: 56px;
+
+  &__title {
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: $font-weight-semibold;
+    line-height: 1.0;
+    color: $primary-color;
+    margin-bottom: 16px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mobile {
+      font-size: 28px;
+    }
+  }
+
+  &__description {
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    line-height: 1.5;
+    color: $secondary-color;
+    max-width: 700px;
+    margin: 0 auto;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  // Variants
+  &--large {
+    .services-header__title {
+      font-size: 48px;
+      line-height: 1.1;
+
+      @include mobile {
+        font-size: 32px;
+      }
+    }
+
+    .services-header__description {
+      font-size: 20px;
+
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &--left {
+    text-align: left;
+
+    .services-header__title,
+    .services-header__description {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &--dark {
+    .services-header__title {
+      color: $white;
+    }
+
+    .services-header__description {
+      color: rgba($white, 0.8);
+    }
+  }
+}

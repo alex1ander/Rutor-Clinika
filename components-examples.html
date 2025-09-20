@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components Examples - Rutos Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+    <div style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Services Header Examples -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="margin-bottom: 30px; color: #2b2b2b;">Services Header Component Examples</h2>
+            
+            <!-- Default Header -->
+            <div class="services-header" style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Default Header</h3>
+                <div class="services-header">
+                    <h1 class="services-header__title">Our team combines expertise, innovation, and compassion to deliver dental care that meets the highest standards — tailored to your unique needs.</h1>
+                    <p class="services-header__description">Our dedicated team combines advanced technology with years of experience to deliver the highest standards of treatment.</p>
+                </div>
+            </div>
+
+            <!-- Large Header -->
+            <div class="services-header services-header--large" style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Large Header</h3>
+                <div class="services-header services-header--large">
+                    <h1 class="services-header__title">A better smile starts with a conversation.</h1>
+                    <p class="services-header__description">Take control of your dental health with expert care tailored just for you. Book your consultation today and start your journey to confidence.</p>
+                </div>
+            </div>
+
+            <!-- Left Aligned Header -->
+            <div class="services-header services-header--left" style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Left Aligned Header</h3>
+                <div class="services-header services-header--left">
+                    <h1 class="services-header__title">Why Choose Our Services?</h1>
+                    <p class="services-header__description">We provide comprehensive dental care with modern technology and experienced professionals.</p>
+                </div>
+            </div>
+
+            <!-- Dark Header -->
+            <div class="services-header services-header--dark" style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px; background-color: #2b2b2b;">
+                <h3 style="margin-bottom: 20px; color: #666;">Dark Header</h3>
+                <div class="services-header services-header--dark">
+                    <h1 class="services-header__title">Premium Dental Services</h1>
+                    <p class="services-header__description">Experience the highest quality dental care in a comfortable and modern environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Accordion Examples -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="margin-bottom: 30px; color: #2b2b2b;">Services Accordion Component Examples</h2>
+            
+            <!-- Default Accordion -->
+            <div style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Default Accordion</h3>
+                <div class="services-accordion">
+                    <div class="services-accordion__item" data-service="1">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">01</div>
+                            <div class="services-accordion__title">Check-ups</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>At Rūtos klinika, we're pleased to be able to offer our clients comprehensive general dental care. From regular check-ups to preventive services, our goal is to ensure your long-term oral health with care and attention to detail.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compact Accordion -->
+            <div style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Compact Accordion</h3>
+                <div class="services-accordion services-accordion--compact">
+                    <div class="services-accordion__item" data-service="2">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">02</div>
+                            <div class="services-accordion__title">Cleaning and Exams</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>To have a healthy and beautiful smile, you must maintain good oral hygiene. Our dental cleaning procedures remove plaque and tartar, help prevent gum disease, and ensure fresh breath and bright teeth.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Accordion -->
+            <div style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px; background-color: #2b2b2b;">
+                <h3 style="margin-bottom: 20px; color: #666;">Dark Accordion</h3>
+                <div class="services-accordion services-accordion--dark">
+                    <div class="services-accordion__item" data-service="3">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">03</div>
+                            <div class="services-accordion__title">Dental Extractions</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Tooth extraction is usually a short procedure that relieves pain and prevents further complications. Our team ensures it's done with maximum comfort and precision, whether it's a simple or complex extraction.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Item -->
+            <div style="margin-bottom: 40px; border: 1px solid #e0e0e0; padding: 30px;">
+                <h3 style="margin-bottom: 20px; color: #666;">Featured Accordion Item</h3>
+                <div class="services-accordion">
+                    <div class="services-accordion__item services-accordion-item--featured" data-service="4">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">04</div>
+                            <div class="services-accordion__title">Root Canal Treatments</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Treatment of dental canals is a process during which infected or damaged pulp is removed. This allows the tooth to be preserved and pain relieved. Our modern techniques ensure the procedure is effective and comfortable.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Instructions -->
+        <section style="margin-bottom: 60px;">
+            <h2 style="margin-bottom: 30px; color: #2b2b2b;">Usage Instructions</h2>
+            
+            <div style="background-color: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 30px;">
+                <h3 style="margin-bottom: 20px; color: #2b2b2b;">Services Header Component</h3>
+                <pre style="background-color: #e9ecef; padding: 15px; border-radius: 4px; overflow-x: auto;"><code>&lt;div class="services-header"&gt;
+    &lt;h1 class="services-header__title"&gt;Your Title Here&lt;/h1&gt;
+    &lt;p class="services-header__description"&gt;Your description here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Variants --&gt;
+&lt;div class="services-header services-header--large"&gt;...&lt;/div&gt;
+&lt;div class="services-header services-header--left"&gt;...&lt;/div&gt;
+&lt;div class="services-header services-header--dark"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+
+            <div style="background-color: #f8f9fa; padding: 30px; border-radius: 8px;">
+                <h3 style="margin-bottom: 20px; color: #2b2b2b;">Services Accordion Component</h3>
+                <pre style="background-color: #e9ecef; padding: 15px; border-radius: 4px; overflow-x: auto;"><code>&lt;div class="services-accordion"&gt;
+    &lt;div class="services-accordion__item" data-service="1"&gt;
+        &lt;div class="services-accordion__header"&gt;
+            &lt;div class="services-accordion__number"&gt;01&lt;/div&gt;
+            &lt;div class="services-accordion__title"&gt;Service Title&lt;/div&gt;
+            &lt;div class="services-accordion__content"&gt;
+                &lt;div class="services-accordion__description"&gt;
+                    &lt;p&gt;Service description...&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="services-accordion__actions"&gt;
+                    &lt;button class="btn btn--primary"&gt;Action 1&lt;/button&gt;
+                    &lt;button class="btn btn--secondary"&gt;Action 2&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;button class="services-accordion__toggle"&gt;
+                &lt;svg class="services-accordion__icon"&gt;...&lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Variants --&gt;
+&lt;div class="services-accordion services-accordion--compact"&gt;...&lt;/div&gt;
+&lt;div class="services-accordion services-accordion--minimal"&gt;...&lt;/div&gt;
+&lt;div class="services-accordion services-accordion--dark"&gt;...&lt;/div&gt;
+
+&lt;!-- Item variants --&gt;
+&lt;div class="services-accordion__item services-accordion-item--featured"&gt;...&lt;/div&gt;
+&lt;div class="services-accordion__item services-accordion-item--disabled"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.services-accordion__item');
+            
+            accordionItems.forEach(item => {
+                const toggle = item.querySelector('.services-accordion__toggle');
+                const content = item.querySelector('.services-accordion__content');
+                const icon = item.querySelector('.services-accordion__icon');
+                
+                if (toggle && content && icon) {
+                    toggle.addEventListener('click', function() {
+                        const isOpen = item.classList.contains('is-open');
+                        
+                        // Close all other accordion items
+                        accordionItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('is-open');
+                                const otherContent = otherItem.querySelector('.services-accordion__content');
+                                const otherIcon = otherItem.querySelector('.services-accordion__icon');
+                                if (otherContent && otherIcon) {
+                                    otherContent.style.maxHeight = null;
+                                    otherIcon.style.transform = 'rotate(0deg)';
+                                }
+                            }
+                        });
+                        
+                        // Toggle current item
+                        if (isOpen) {
+                            item.classList.remove('is-open');
+                            content.style.maxHeight = null;
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            item.classList.add('is-open');
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(45deg)';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

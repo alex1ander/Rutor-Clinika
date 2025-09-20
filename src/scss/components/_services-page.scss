@@ -1,0 +1,39 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Services Page Container
+.services-page {
+  padding: $spacing-5xl 0;
+  background-color: $white;
+
+  &__content {
+    max-width: 1297px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    @include mobile {
+      padding: 0 20px;
+    }
+  }
+
+  // Variants
+  &--compact {
+    padding: 80px 0;
+  }
+
+  &--dark {
+    background-color: $neutral-950;
+    color: $white;
+  }
+
+  &--minimal {
+    padding: 100px 0;
+    background-color: $neutral-50;
+  }
+}
+
+
+// Active navigation state
+.header__nav-list li a.active {
+  color: $neutral-600;
+}

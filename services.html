@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutos Clinic - Dental Care</title>
+    <title>Rutos Clinic - Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/main.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,8 +19,8 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__nav-list">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
                         <li><a href="#prices">Prices</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -51,8 +48,8 @@
         <div class="header__mobile-menu">
             <nav class="header__mobile-nav">
                 <ul class="header__mobile-nav-list">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="index.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
                     <li><a href="#prices">Prices</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -69,7 +66,237 @@
         </div>
     </header>
 
- 
+    <!-- Services Section -->
+    <section class="services-page">
+        <div class="container">
+            <div class="services-page__content">
+                <!-- Header Section -->
+                <div class="services-header">
+                    <h1 class="services-header__title">Our team combines expertise, innovation, and compassion to deliver dental care that meets the highest standards — tailored to your unique needs.</h1>
+                    <p class="services-header__description">Our dedicated team combines advanced technology with years of experience to deliver the highest standards of treatment.</p>
+                </div>
+
+                <!-- Services Accordion -->
+                <div class="services-accordion">
+                    <!-- Service 1: Check-ups -->
+                    <div class="services-accordion__item" data-service="1">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">01</div>
+                            <div class="services-accordion__title">Check-ups</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>At Rūtos klinika, we're pleased to be able to offer our clients comprehensive general dental care. From regular check-ups to preventive services, our goal is to ensure your long-term oral health with care and attention to detail.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Cleaning and Exams -->
+                    <div class="services-accordion__item" data-service="2">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">02</div>
+                            <div class="services-accordion__title">Cleaning and Exams</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>To have a healthy and beautiful smile, you must maintain good oral hygiene. Our dental cleaning procedures remove plaque and tartar, help prevent gum disease, and ensure fresh breath and bright teeth.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Dental Extractions -->
+                    <div class="services-accordion__item" data-service="3">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">03</div>
+                            <div class="services-accordion__title">Dental Extractions</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Tooth extraction is usually a short procedure that relieves pain and prevents further complications. Our team ensures it's done with maximum comfort and precision, whether it's a simple or complex extraction.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Root Canal Treatments -->
+                    <div class="services-accordion__item" data-service="4">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">04</div>
+                            <div class="services-accordion__title">Root Canal Treatments</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Treatment of dental canals is a process during which infected or damaged pulp is removed. This allows the tooth to be preserved and pain relieved. Our modern techniques ensure the procedure is effective and comfortable.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 5: Dental Implants -->
+                    <div class="services-accordion__item" data-service="5">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">05</div>
+                            <div class="services-accordion__title">Dental Implants</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Dental implants are a long-term solution used to replace missing teeth. They look and function like natural teeth and help maintain jaw structure. We use high-quality materials for lasting results.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 6: Restorative and Cosmetic Dentistry -->
+                    <div class="services-accordion__item" data-service="6">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">06</div>
+                            <div class="services-accordion__title">Restorative and<br>Cosmetic Dentistry</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>The dental filling procedure is performed to fill cavities and restore damaged teeth. We use aesthetic materials and precise techniques to ensure beautiful, long-lasting results for both restorative and cosmetic needs.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 7: Crowns, Bridges and Dentures -->
+                    <div class="services-accordion__item" data-service="7">
+                        <div class="services-accordion__header">
+                            <div class="services-accordion__number">07</div>
+                            <div class="services-accordion__title">Crowns, Bridges<br>and Dentures</div>
+                            <div class="services-accordion__content">
+                                <div class="services-accordion__description">
+                                    <p>Various injuries, dental caries, tissue diseases, or congenital conditions can cause tooth loss. Our prosthetic solutions — crowns, bridges, and dentures — restore function, aesthetics, and confidence to your smile.</p>
+                                </div>
+                                <div class="services-accordion__actions">
+                                    <button class="btn btn--primary">Request Consultation</button>
+                                    <button class="btn btn--secondary">View prices</button>
+                                </div>
+                            </div>
+                            <button class="services-accordion__toggle" aria-label="Toggle service details">
+                                <svg class="services-accordion__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-section__content">
+                <div class="contact-section__info">
+                    <h2 class="contact-section__title">A better smile starts with a conversation.</h2>
+                    <p class="contact-section__description">Take control of your dental health with expert care tailored just for you. Book your consultation today and start your journey to confidence.</p>
+                    <div class="contact-section__details">
+                        <div class="contact-section__detail">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M2.5 6.25L10 10.625L17.5 6.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.5 6.25L10 10.625L17.5 6.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>info@rutosklinika.lt</span>
+                        </div>
+                        <div class="contact-section__detail">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87868 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.33030L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1213L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>+370 000 00 000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-section__form">
+                    <div class="form-tabs">
+                        <button class="form-tab">Phone Call</button>
+                        <button class="form-tab form-tab--active">Email Message</button>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">Enter your name</label>
+                            <input type="text" class="form-input" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Enter your phone number</label>
+                            <div class="form-phone">
+                                <div class="form-phone-code">
+                                    <span>+371</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Phone number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-toggle">
+                                <label class="toggle__label">
+                                    <input type="checkbox" class="toggle__input">
+                                    <span class="toggle__slider"></span>
+                                    <span class="toggle__text">Choose specific time</span>
+                                </label>
+                            </div>
+                            <input type="time" class="form-input" placeholder="00:00" style="width: 253px;">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Request a Call</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -82,8 +309,8 @@
                     <div class="footer__section">
                         <h3 class="footer__title">Navigation</h3>
                         <ul class="footer__list">
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Services</a></li>
+                            <li><a href="index.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
                             <li><a href="#prices">Prices</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#">Cookies Policy</a></li>
@@ -213,6 +440,58 @@
                     }
                 });
             }
+
+            // Services Accordion Functionality
+            const accordionItems = document.querySelectorAll('.services-accordion__item');
+            
+            accordionItems.forEach(item => {
+                const toggle = item.querySelector('.services-accordion__toggle');
+                const content = item.querySelector('.services-accordion__content');
+                const icon = item.querySelector('.services-accordion__icon');
+                
+                if (toggle && content && icon) {
+                    toggle.addEventListener('click', function() {
+                        const isOpen = item.classList.contains('is-open');
+                        
+                        // Close all other accordion items
+                        accordionItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('is-open');
+                                const otherContent = otherItem.querySelector('.services-accordion__content');
+                                const otherIcon = otherItem.querySelector('.services-accordion__icon');
+                                if (otherContent && otherIcon) {
+                                    otherContent.style.maxHeight = null;
+                                    otherIcon.style.transform = 'rotate(0deg)';
+                                }
+                            }
+                        });
+                        
+                        // Toggle current item
+                        if (isOpen) {
+                            item.classList.remove('is-open');
+                            content.style.maxHeight = null;
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            item.classList.add('is-open');
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(45deg)';
+                        }
+                    });
+                }
+            });
+
+            // Form Tabs Functionality
+            const formTabs = document.querySelectorAll('.form-tab');
+            
+            formTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    formTabs.forEach(t => t.classList.remove('form-tab--active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('form-tab--active');
+                });
+            });
         });
     </script>
 </body>
