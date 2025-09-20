@@ -1,0 +1,137 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Services Component - только позиционирование
+.services {
+  padding: $spacing-5xl 0;
+  background-color: $white;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-2xl;
+    align-items: flex-end;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__title {
+    max-width: 421px;
+    margin: 0;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__link {
+    @include flex-center;
+    gap: $spacing-xs;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+      transform: translateX(4px);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      transition: transform $transition-fast;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &__grid {
+    gap: $spacing-lg;
+    @include grid-responsive(1, 4);
+
+    @include mobile {
+      gap: $spacing-md;
+    }
+  }
+}
+
+// Service Card Component
+.service-card {
+  @include card-base;
+  overflow: hidden;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+
+    @include mobile {
+      aspect-ratio: 3 / 5;
+    }
+
+    img {
+      @include image-cover;
+      transition: transform $transition-slow;
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    @include flex-between;
+    padding: $spacing-md $spacing-lg;
+    background-color: $white;
+    min-height: 60px;
+  }
+
+  &__title {
+    margin: 0;
+    flex: 1;
+  }
+
+  &__arrow {
+    width: 20px;
+    height: 20px;
+    color: $primary-color;
+    transition: transform $transition-fast;
+    flex-shrink: 0;
+  }
+
+  &:hover &__arrow {
+    transform: translateX(4px);
+  }
+}
+
+// Services variants
+.services--dark {
+  background-color: $neutral-950;
+  color: $white;
+
+  .service-card {
+    background-color: rgba($white, 0.05);
+    border: 1px solid rgba($white, 0.1);
+
+    &__arrow {
+      color: $white;
+    }
+  }
+}
+
+.services--minimal {
+  padding: $spacing-3xl 0;
+
+  .services__grid {
+    @include grid-responsive(1, 3);
+  }
+}

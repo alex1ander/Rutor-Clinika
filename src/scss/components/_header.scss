@@ -1,0 +1,262 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Header Component - только позиционирование
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background-color: rgba($white, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($border-color, 0.5);
+  transition: all $transition-normal;
+
+  &__content {
+    @include flex-between;
+    min-height: 80px;
+    align-items: center;
+    
+    @include mobile {
+      min-height: 72px;
+      padding: 0 $spacing-md;
+    }
+  }
+
+  &__logo {
+    @include flex-center;
+    
+    img {
+      @include size(55px, auto);
+      object-fit: contain;
+      
+      @include mobile {
+        @include size(81px, 41px);
+      }
+    }
+  }
+
+  &__nav {
+    @include flex-center;
+    
+    @include mobile {
+      display: none;
+    }
+
+    &-list {
+      @include flex-center;
+      gap: $spacing-xl;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          text-decoration: none;
+          transition: color $transition-fast;
+          position: relative;
+
+          &:hover {
+            color: $neutral-600;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $neutral-600;
+            transition: width $transition-fast;
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__contact {
+    @include flex-center;
+    gap: $spacing-xl;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__phone {
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $neutral-600;
+    }
+  }
+
+  &__language {
+    @include flex-center;
+    gap: $spacing-xs;
+    cursor: pointer;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $neutral-600;
+    }
+
+    svg {
+      @include icon-size(24px);
+      color: $primary-color;
+      transition: transform $transition-fast;
+    }
+
+    &:hover svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Burger Menu
+  &__burger {
+    display: none;
+    justify-content: space-around;
+    @include size(24px, 24px);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: $z-modal;
+
+    @include mobile {
+      @include flex-column;
+    }
+
+    &-line {
+      @include size(100%, 3px);
+      background-color: $primary-color;
+      border-radius: 2px;
+      transition: all $transition-fast;
+      transform-origin: center;
+    }
+
+    // Burger animation states
+    &.is-active {
+      .header__burger-line {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+      }
+    }
+  }
+
+  // Mobile Menu
+  &__mobile-menu {
+    height: 100dvh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $white;
+    z-index: $z-dropdown;
+    transform: scaleY(0);
+    transition: transform $transition-normal;
+    overflow-y: auto;
+
+    @include desktop {
+      display: none;
+    }
+
+    &.is-open {
+      transform: scaleY(1);
+    }
+  }
+
+  &__mobile-nav {
+    padding: $spacing-5xl $spacing-md $spacing-2xl;
+    
+    &-list {
+      @include flex-column;
+      gap: $spacing-2xl;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      li {
+        a {
+          text-decoration: none;
+          transition: color $transition-fast;
+          display: block;
+          padding: $spacing-md 0;
+
+          &:hover {
+            color: $neutral-600;
+          }
+        }
+      }
+    }
+  }
+
+  &__mobile-contact {
+    @include flex-column;
+    gap: $spacing-lg;
+    padding: $spacing-2xl $spacing-md;
+    border-top: 1px solid $border-color;
+    text-align: center;
+  }
+
+  &__mobile-phone {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $neutral-600;
+    }
+  }
+
+  &__mobile-language {
+    @include flex-center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $neutral-600;
+    }
+
+    svg {
+      @include icon-size(20px);
+      color: $primary-color;
+      transition: transform $transition-fast;
+    }
+
+    &:hover svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Header scroll effect
+.header--scrolled {
+  background-color: rgba($white, 0.98);
+  box-shadow: $shadow-md;
+}
+
+// Body scroll lock when menu is open
+body.menu-open {
+  overflow: hidden;
+}

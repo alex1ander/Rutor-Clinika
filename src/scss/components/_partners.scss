@@ -1,0 +1,91 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Partners Component - только позиционирование
+.partners {
+  padding: $spacing-3xl 0;
+  background-color: $white;
+
+  &__title {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__grid {
+    align-items: center;
+    gap: $spacing-lg;
+    @include grid-responsive(2, 6);
+
+    @include mobile {
+      gap: $spacing-lg;
+    }
+  }
+}
+
+// Partner Component
+.partner {
+  @include flex-center;
+  height: 117px;
+  background-color: $white;
+  border-radius: $border-radius-sm;
+  padding: $spacing-md;
+  transition: all $transition-normal;
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: $border-color;
+  }
+
+  img {
+    @include image-contain;
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all $transition-normal;
+  }
+
+  &:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+// Partners variants
+.partners--dark {
+  background-color: $neutral-950;
+
+  .partner {
+    background-color: rgba($white, 0.05);
+    border-color: rgba($white, 0.1);
+
+    &:hover {
+      background-color: rgba($white, 0.1);
+      border-color: rgba($white, 0.2);
+    }
+  }
+}
+
+.partners--minimal {
+  padding: $spacing-2xl 0;
+
+  .partners__grid {
+    @include grid-responsive(2, 5);
+  }
+
+  .partner {
+    height: 80px;
+  }
+}
+
+.partners--logos-only {
+  .partners__title {
+    display: none;
+  }
+
+  .partners__grid {
+    @include grid-responsive(3, 6);
+  }
+}

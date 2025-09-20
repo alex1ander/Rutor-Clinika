@@ -1,0 +1,17 @@
+{
+  "name": "rutorclinika",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+    "build:sass": "sass src/scss/main.scss dist/css/main.css --style=expanded",
+    "build:sass:prod": "sass src/scss/main.scss dist/css/main.css --style=compressed",
+    "watch:sass": "sass --watch src/scss:dist/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.92.1"
+  }
+}

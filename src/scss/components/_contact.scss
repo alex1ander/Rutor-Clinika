@@ -1,0 +1,206 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Contact Component - только позиционирование
+.contact {
+  background-color: $light-gray;
+  padding: $spacing-2xl 0;
+
+  &__content {
+    @include flex-between;
+    gap: 159px;
+    align-items: flex-start;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    max-width: 640px;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__description {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-lg;
+
+    @include mobile {
+      gap: $spacing-md;
+    }
+  }
+
+  &__detail {
+    @include flex-center;
+    gap: $spacing-sm;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__form {
+    flex: 1;
+    max-width: 369px;
+    background-color: $white;
+    padding: $spacing-lg;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+
+    @include mobile {
+      max-width: 100%;
+      padding: $spacing-md;
+    }
+  }
+}
+
+// Form Tabs
+.form-tabs {
+  display: flex;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: $spacing-lg;
+  background-color: $white;
+  border-radius: $border-radius-sm $border-radius-sm 0 0;
+  overflow: hidden;
+
+  .form-tab {
+    flex: 1;
+    padding: $spacing-md $spacing-lg;
+    background: none;
+    border: none;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    color: $neutral-950;
+    cursor: pointer;
+    transition: all $transition-fast;
+    position: relative;
+
+    &--active {
+      color: $neutral-600;
+      background-color: rgba($neutral-600, 0.05);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $neutral-600;
+      }
+    }
+
+    &:hover:not(.form-tab--active) {
+      background-color: rgba($neutral-600, 0.02);
+    }
+  }
+}
+
+// Form
+.form {
+  .form-group {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-label {
+    @include label-base;
+    margin-bottom: $spacing-xs;
+  }
+
+  .form-input {
+    @include input-base;
+    width: 100%;
+
+    &[type="time"] {
+      max-width: 253px;
+    }
+  }
+
+  .form-phone {
+    display: flex;
+    gap: $spacing-sm;
+
+    .form-phone-code {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-md $spacing-lg;
+      background-color: $white;
+      border: 1px solid $input-border;
+      border-radius: $border-radius-md;
+      font-family: $font-family-primary;
+      font-size: $font-size-base;
+      color: $neutral-950;
+      min-width: 109px;
+      cursor: pointer;
+      transition: border-color $transition-fast;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: $primary-color;
+        transition: transform $transition-fast;
+      }
+
+      &:hover svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .form-input {
+      flex: 1;
+    }
+  }
+
+  .form-toggle {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Contact variants
+.contact--dark {
+  background-color: $neutral-950;
+  color: $white;
+
+  .contact__form {
+    background-color: rgba($white, 0.05);
+    border: 1px solid rgba($white, 0.1);
+  }
+}
+
+.contact--minimal {
+  padding: $spacing-xl 0;
+
+  .contact__content {
+    gap: $spacing-2xl;
+  }
+
+  .contact__form {
+    max-width: 400px;
+  }
+}

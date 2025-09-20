@@ -1,0 +1,93 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Statistics Component - только позиционирование
+.statistics {
+  background-color: $white;
+  padding: $spacing-2xl 0;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  &__content {
+    @include flex-between;
+    gap: $spacing-5xl;
+    padding: $spacing-lg 0;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-2xl;
+      text-align: center;
+    }
+  }
+
+  &__item {
+    @include flex-column;
+    gap: $spacing-sm;
+    flex: 1;
+    text-align: center;
+    padding: $spacing-md 0;
+
+    @include mobile {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  &__label {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__number {
+    margin: $spacing-sm 0;
+    display: block;
+  }
+
+  &__description {
+    max-width: 182px;
+    margin: 0 auto;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  // Animation effects
+  &__item {
+    @include fade-in(0.6s);
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  }
+
+  &__number {
+    @include slide-up(0.8s);
+    animation-delay: 0.4s;
+  }
+}
+
+// Statistics variants
+.statistics--dark {
+  background-color: $neutral-950;
+  color: $white;
+}
+
+.statistics--minimal {
+  padding: $spacing-lg 0;
+
+  .statistics__content {
+    gap: $spacing-2xl;
+  }
+
+  .statistics__number {
+    font-size: $font-size-2xl;
+  }
+}

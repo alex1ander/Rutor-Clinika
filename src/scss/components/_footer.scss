@@ -1,0 +1,213 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Footer Component - только позиционирование
+.footer {
+  background-color: $footer-bg;
+  color: $footer-text;
+  padding: $spacing-2xl 0 $spacing-lg;
+
+  &__content {
+    @include flex-between;
+    margin-bottom: $spacing-3xl;
+    align-items: flex-start;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+
+    img {
+      height: 91px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+
+      @include mobile {
+        height: 60px;
+      }
+    }
+  }
+
+  &__nav {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 200px;
+    flex: 1;
+    max-width: 920px;
+
+    @include mobile {
+      gap: $spacing-2xl;
+      max-width: 100%;
+      flex-direction: column;
+    }
+  }
+
+  &__section {
+    flex: 1;
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: $spacing-lg;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        text-decoration: none;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    @include mobile {
+      align-items: flex-start;
+    }
+  }
+
+  &__info-item {
+    @include flex-start;
+    gap: $spacing-sm;
+
+    @include mobile {
+      justify-content: center;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+
+  &__bottom {
+    @include flex-between;
+    align-items: flex-end;
+    padding-top: $spacing-lg;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-md;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__copyright {
+    p {
+      margin: 0;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    a {
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__created {
+    @include flex-center;
+    gap: $spacing-md;
+
+    span {
+      // Text styles moved to main.scss
+    }
+  }
+
+  &__logo-small {
+    @include flex-center;
+    gap: $spacing-sm;
+
+    img {
+      width: 36px;
+      height: 25px;
+      object-fit: contain;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+
+  &__logo-text {
+    line-height: 1;
+    letter-spacing: 0.48px;
+  }
+
+  &__logo-subtext {
+    line-height: 1;
+    letter-spacing: 0.19px;
+  }
+}
+
+// Footer variants
+.footer--minimal {
+  padding: $spacing-xl 0;
+
+  .footer__content {
+    margin-bottom: $spacing-2xl;
+  }
+
+  .footer__nav {
+    gap: $spacing-2xl;
+  }
+}
+
+.footer--centered {
+  text-align: center;
+
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-2xl;
+  }
+
+  .footer__section {
+    text-align: center;
+  }
+}

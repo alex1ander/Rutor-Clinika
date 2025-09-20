@@ -1,0 +1,568 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'components/header';
+@use 'components/hero';
+@use 'components/statistics';
+@use 'components/services';
+@use 'components/about';
+@use 'components/partners';
+@use 'components/contact';
+@use 'components/footer';
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-loose;
+  color: $primary-color;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Container
+.container {
+  @include container;
+}
+
+// Typography - все текстовые стили здесь
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+}
+
+h1 {
+  color: $primary-color;
+  @include heading-1;
+}
+
+h2 {
+  color: $primary-color;
+  @include heading-2;
+}
+
+h3 {
+  color: $primary-color;
+  @include heading-3;
+}
+
+p {
+  margin: 0;
+  @include body-text;
+  color: $secondary-color;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $neutral-600;
+  }
+}
+
+img {
+  height: 100%;
+  max-width: 100%;
+}
+
+// Buttons
+.btn {
+  @include button-base;
+  
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--secondary {
+    @include button-secondary;
+  }
+  
+  &--full {
+    width: 100%;
+  }
+}
+
+// Form elements
+.form {
+  &-group {
+    margin-bottom: $spacing-md;
+  }
+  
+  &-label {
+    @include label-base;
+  }
+  
+  &-input {
+    @include input-base;
+  }
+  
+  &-tabs {
+    display: flex;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $spacing-lg;
+  }
+  
+  &-tab {
+    padding: $spacing-md $spacing-lg;
+    background: none;
+    border: none;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    color: $neutral-950;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all $transition-fast;
+    
+    &--active {
+      color: $neutral-600;
+      border-bottom-color: $neutral-600;
+    }
+    
+    &:hover {
+      color: $neutral-600;
+    }
+  }
+  
+  &-phone {
+    display: flex;
+    gap: $spacing-sm;
+    
+    &-code {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-md $spacing-lg;
+      background-color: $white;
+      border: 1px solid $input-border;
+      border-radius: $border-radius-md;
+      font-family: $font-family-primary;
+      font-size: $font-size-base;
+      color: $neutral-950;
+      min-width: 109px;
+    }
+  }
+  
+  &-toggle {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Toggle switch
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  &__input {
+    display: none;
+  }
+  
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    font-family: $font-family-primary;
+    font-size: $font-size-sm;
+    color: $black;
+  }
+  
+  &__slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: $border-color;
+    border-radius: 12px;
+    transition: background-color $transition-fast;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border-radius: 50%;
+      transition: transform $transition-fast;
+    }
+  }
+  
+  &__input:checked + &__label &__slider {
+    background-color: $neutral-600;
+    
+    &::before {
+      transform: translateX(20px);
+    }
+  }
+  
+  &__text {
+    white-space: nowrap;
+  }
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+// Component-specific text styles - согласно дизайну
+.hero {
+  &__title {
+    color: $primary-color;
+    @include heading-1;
+  }
+  
+  &__description {
+    p {
+      @include body-text;
+      font-size: $font-size-base;
+      line-height: 1.5;
+      color: $secondary-color;
+    }
+  }
+}
+
+.about {
+  &__title {
+    @include heading-2;
+    color: $neutral-950;
+  }
+  
+  &__description {
+    @include body-text;
+    font-size: $font-size-xl; // 20px
+    line-height: 1.5;
+    color: $secondary-color;
+    
+    @include mobile {
+      font-size: $font-size-base; // 16px
+    }
+  }
+}
+
+.step {
+  &__number {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl; // 20px
+    font-weight: $font-weight-normal;
+    color: $secondary-color;
+  }
+  
+  &__content p {
+    @include body-text;
+    font-size: $font-size-3xl; // 28px
+    line-height: 1.2;
+    color: $neutral-950;
+    
+    @include mobile {
+      font-size: $font-size-xl; // 20px
+    }
+  }
+}
+
+.services {
+  &__title {
+    @include heading-2;
+  }
+  
+  &__link {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl; // 20px
+    font-weight: $font-weight-normal;
+    color: $neutral-950;
+    
+    &:hover {
+      color: $neutral-600;
+    }
+  }
+}
+
+.service-card {
+  &__title {
+    @include heading-3;
+    font-size: $font-size-xl; // 20px
+    font-weight: $font-weight-medium;
+    color: $primary-color;
+  }
+}
+
+// Header text styles
+.header {
+  &__nav-list li a {
+    @include body-text;
+    color: $primary-color;
+  }
+  
+  &__phone {
+    @include body-text;
+    color: $primary-color;
+  }
+  
+  &__language span {
+    @include body-text;
+  }
+  
+  &__mobile-nav-list li a {
+    @include heading-3;
+    color: $primary-color;
+  }
+  
+  &__mobile-phone {
+    @include heading-3;
+    color: $primary-color;
+  }
+  
+  &__mobile-language span {
+    @include body-text;
+  }
+}
+
+// Statistics text styles - согласно дизайну
+.statistics {
+  &__label {
+    @include small-text;
+    color: $accent-color;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    @include mobile {
+      font-size: $font-size-base; // 16px
+    }
+  }
+  
+  &__number {
+    font-family: $font-family-primary;
+    font-size: $font-size-6xl; // 56px
+    font-weight: $font-weight-semibold;
+    line-height: 1.1;
+    color: $neutral-600;
+    
+    @include mobile {
+      font-size: $font-size-4xl; // 36px
+    }
+  }
+  
+  &__description {
+    @include small-text;
+    color: $accent-color;
+    line-height: 1.2;
+    
+    @include mobile {
+      font-size: $font-size-base; // 16px
+    }
+  }
+}
+
+// Contact text styles - согласно дизайну
+.contact {
+  &__title {
+    @include heading-2;
+    color: $primary-color;
+  }
+  
+  &__description {
+    @include body-text;
+    font-size: $font-size-xl; // 20px
+    line-height: 1.5;
+    color: $secondary-color;
+    
+    @include mobile {
+      font-size: $font-size-base; // 16px
+    }
+  }
+  
+  &__detail {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $primary-color;
+    
+    span {
+      color: $primary-color;
+    }
+  }
+}
+
+// Partners text styles - согласно дизайну
+.partners {
+  &__title {
+    @include heading-2;
+    color: $neutral-950;
+  }
+}
+
+// Footer text styles - согласно дизайну
+.footer {
+  &__title {
+    font-family: $font-family-primary;
+    font-size: $font-size-3xl; // 28px
+    font-weight: $font-weight-semibold;
+    color: $footer-text;
+
+    @include mobile{
+      text-align: left;
+      font-size: $font-size-2xl;
+    }
+  }
+  &__list li{
+    @include mobile{
+      text-align: left;
+    }
+  }
+  &__list li a {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl; // 20px
+    font-weight: $font-weight-normal;
+    color: $footer-link;
+
+    @include mobile{
+      text-align: left;
+      font-size: $font-size-base;
+    }
+  }
+  
+  &__info-item {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $footer-link;
+    
+    svg {
+      color: $footer-link;
+    }
+    
+    span {
+      color: $footer-link;
+      line-height: 1.3;
+    }
+  }
+  
+  &__copyright p {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs; // 11px
+    font-weight: $font-weight-medium;
+    color: $footer-text;
+    line-height: 1.5;
+  }
+  
+  &__legal a {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs; // 11px
+    font-weight: $font-weight-medium;
+    color: $footer-text;
+  }
+  
+  &__created span {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs; // 11px
+    font-weight: $font-weight-medium;
+    color: $footer-text;
+  }
+  
+  &__logo-text {
+    font-family: 'Euclid Flex', sans-serif;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $footer-text;
+  }
+  
+  &__logo-subtext {
+    font-family: 'Euclid Flex', sans-serif;
+    font-size: 6px;
+    font-weight: $font-weight-normal;
+    color: $footer-text;
+  }
+}
+
+// Dark theme text styles
+.services--dark {
+  .services__title {
+    color: $white;
+  }
+  
+  .services__link {
+    color: $white;
+    
+    &:hover {
+      color: rgba($white, 0.8);
+    }
+  }
+  
+  .service-card__title {
+    color: $white;
+  }
+}
+
+.statistics--dark {
+  .statistics__label,
+  .statistics__description {
+    color: rgba($white, 0.7);
+  }
+  
+  .statistics__number {
+    color: $white;
+  }
+}
+
+.contact--dark {
+  .contact__title {
+    color: $white;
+  }
+  
+  .contact__description {
+    color: rgba($white, 0.8);
+  }
+  
+  .contact__detail {
+    color: $white;
+    
+    svg,
+    span {
+      color: $white;
+    }
+  }
+}
+
+.partners--dark {
+  .partners__title {
+    color: $white;
+  }
+}
