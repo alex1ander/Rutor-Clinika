@@ -1,0 +1,134 @@
+// Prices Accordion Component
+.prices {
+    padding: 24px 0 0;
+    
+    &__title {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 0.95;
+        color: #2b2b2b;
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    
+    &__accordions {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+    
+    &__row {
+        display: flex;
+        gap: 36px;
+        justify-content: space-between;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+    
+    &__accordion {
+        flex: 1;
+        max-width: 546px;
+        
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
+    }
+    
+    &__accordion-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 16px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #d1d1d1;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background-color: #f8f8f8;
+        }
+        
+        &:focus {
+            outline: 2px solid #2b2b2b;
+            outline-offset: 2px;
+        }
+    }
+    
+    &__accordion-title {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.1;
+        color: #1c1b1f;
+        text-transform: capitalize;
+        text-align: left;
+    }
+    
+    &__accordion-icon {
+        width: 24px;
+        height: 24px;
+        color: #1c1b1f;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+    
+    &__accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: #fff;
+    }
+    
+    &__services {
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    &__service {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    
+    &__service-name {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #2b2b2b;
+    }
+    
+    &__service-price {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #1c1b1f;
+    }
+    
+    // Active state
+    &__accordion--active {
+        .prices__accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .prices__accordion-content {
+            max-height: 500px; // Adjust based on content
+        }
+    }
+}
+
