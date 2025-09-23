@@ -1,10 +1,18 @@
-<?php get_header(); ?>
-	<?php get_template_part('template-parts/hero'); ?>
-	<?php get_template_part('template-parts/statistics'); ?>
-	<?php get_template_part('template-parts/services'); ?>
-	<?php get_template_part('template-parts/about'); ?>
-	<?php get_template_part('template-parts/partners'); ?>
-	<?php get_template_part('template-parts/contact'); ?>
+<?php 
+/* Template Name: Contact */
+get_header(); ?>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <section class="gallery-slider">
+        <div class="container">
+			 <div class="contact-page">
+                <h1 class="contact-page__title"><?php the_title(); ?></h1>
+				<?php the_content(); ?>
+			</div>
+		</div>
+        </section>
+    </main>
 
 <?php get_footer(); ?>
-
