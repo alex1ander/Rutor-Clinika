@@ -28,6 +28,11 @@
       margin: auto;
     }
 
+
+    .services-accordion__icon.rotate {
+        transform: rotate(90deg);
+      }
+
     // Open state
     &.is-open {
       .services-accordion__content {
@@ -38,7 +43,7 @@
         }
       }
       .services-accordion__icon.rotate {
-        transform: rotate(90deg);
+        transform: rotate(0deg);
       }
     }
   }
