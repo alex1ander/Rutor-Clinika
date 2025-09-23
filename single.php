@@ -11,6 +11,7 @@
             <div class="prices__accordions">
 
                 <?php $pricesAccordions = get_field('price_accordion'); ?>
+                <?php $pricesAccordions = is_array($pricesAccordions) ? $pricesAccordions : []; ?>
                 <?php 
                 // echo '<pre>';
                 // print_r($pricesAccordions);
@@ -24,19 +25,21 @@
 
                     <div class="prices__accordion">
                         <button class="prices__accordion-header" data-accordion="<?= $index ?>">
-                            <span class="prices__accordion-title"><?php echo esc_html($accordion['title']); ?></span>
+                            <span class="prices__accordion-title"><?php echo !empty($accordion['title']) ? esc_html($accordion['title']) : ''; ?></span>
                             <svg class="prices__accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                         <div class="prices__accordion-content" id="<?= $index ?>">
                             <div class="prices__services">
+                                <?php if (!empty($accordion['content']) && is_array($accordion['content'])): ?>
                                 <?php foreach ($accordion['content'] as $service): ?>
                                     <div class="prices__service">
-                                        <span class="prices__service-name"><?php echo esc_html($service['service_name']); ?></span>
-                                        <span class="prices__service-price"><?php echo esc_html($service['price']); ?></span>
+                                        <span class="prices__service-name"><?php echo !empty($service['service_name']) ? esc_html($service['service_name']) : ''; ?></span>
+                                        <span class="prices__service-price"><?php echo !empty($service['price']) ? esc_html($service['price']) : ''; ?></span>
                                     </div>
                                 <?php endforeach; ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

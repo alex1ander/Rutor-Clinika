@@ -1,8 +1,6 @@
 <?php 
 $our_numbers = get_field('our_numbers');
-// echo '<pre>';
-// print_r($our_numbers);
-// echo '</pre>';
+$our_numbers = is_array($our_numbers) ? $our_numbers : [];
 ?>
 
 <section class="statistics">
@@ -13,9 +11,13 @@ $our_numbers = get_field('our_numbers');
 
 			<?php foreach($our_numbers as $block): ?>
 			<div class="statistics__item">
-				<div class="statistics__label"><?= $block['title'] ?></div>
-				<div class="statistics__number"><?= $block['number_plus'] == true  ? '+' : ''?><?= $block['number']?></div>
-				<div class="statistics__description"><?= $block['text'] ?></div>
+				<?php if (!empty($block['title'])): ?>
+				<div class="statistics__label"><?= esc_html($block['title']) ?></div>
+				<?php endif; ?>
+				<div class="statistics__number"><?= !empty($block['number_plus']) ? '+' : ''?><?= isset($block['number']) ? esc_html($block['number']) : ''?></div>
+				<?php if (!empty($block['text'])): ?>
+				<div class="statistics__description"><?= esc_html($block['text']) ?></div>
+				<?php endif; ?>
 			</div>
 			<?php endforeach; ?>
 		</div>

@@ -1,22 +1,26 @@
 <?php 
 $our_trusted_partners = get_field('our_trusted_partners');
-// echo '<pre>';
-// print_r($our_trusted_partners);
-// echo '</pre>';
+$our_trusted_partners = is_array($our_trusted_partners) ? $our_trusted_partners : null;
 ?>
 <section class="partners">
 	<div class="container">
-		<h2 class="partners__title"><?= $our_trusted_partners['title'] ?></h2>
+		<?php if ($our_trusted_partners && !empty($our_trusted_partners['title'])): ?>
+		<h2 class="partners__title"><?= esc_html($our_trusted_partners['title']) ?></h2>
+		<?php endif; ?>
 			
 		<div class="swiper brand-swiper">
 			<div class="swiper-wrapper">
+				<?php if ($our_trusted_partners && !empty($our_trusted_partners['partners']) && is_array($our_trusted_partners['partners'])): ?>
 				<?php foreach($our_trusted_partners['partners'] as $partner): ?>
 				<div class="swiper-slide">
 					<div class="partner">
-						<img src="<?= $partner['image'] ?>" alt="">
+						<?php if (!empty($partner['image'])): ?>
+						<img src="<?= esc_url($partner['image']) ?>" alt="">
+						<?php endif; ?>
 					</div>
 				</div>
 				<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

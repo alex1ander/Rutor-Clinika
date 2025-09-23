@@ -1,20 +1,25 @@
 <?php 
 $services = get_field('services');
-// echo '<pre>';
-// print_r($services);
-// echo '</pre>';
+$services = is_array($services) ? $services : null;
 ?>
 
 <section class="services" id="services">
 	<div class="container">
 		<div class="services__header">
-			<h2 class="services__title"><?= $services['title'] ?></h2>
-			<a href="<?php echo get_category_link(get_category_by_slug('services')); ?>" target="<?= $services['link']['target'] ?>" class="services__link">
-				<?= $services['link']['title'] ?>
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-					<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</a>
+			<?php if ($services && !empty($services['title'])): ?>
+			<h2 class="services__title"><?= esc_html($services['title']) ?></h2>
+			<?php endif; ?>
+			<?php if ($services && !empty($services['link']) && is_array($services['link'])): ?>
+				<?php $slink = $services['link']; ?>
+				<?php if (!empty($slink['title'])): ?>
+				<a href="<?php echo esc_url(get_category_link(get_category_by_slug('services'))); ?>" target="<?= !empty($slink['target']) ? esc_attr($slink['target']) : '_self' ?>" class="services__link">
+					<?= esc_html($slink['title']) ?>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+						<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+				<?php endif; ?>
+			<?php endif; ?>
 		</div>
 
 		<div class="swiper services-swiper">
