@@ -17,9 +17,9 @@
     <header class="header">
         <div class="container">
             <div class="header__content">
-                <div class="header__logo">
+                <a href="/" class="header__logo">
                     <img src="<?= get_template_directory_uri() . '/src/assets/image/logo-small.png' ?>" alt="logo">
-                </div>
+                </a>
                 <nav class="header__nav">
                     <ul class="header__nav-list">
                         <li><a href="#about">About Us</a></li>
