@@ -9,6 +9,14 @@ get_header(); ?>
         <div class="container">
             <div class="contact-page">
                 <h1 class="contact-page__title"><?php the_title(); ?></h1>
+                <?php
+                $themeOptions = get_field('social_links','options');
+                $themeOptions = is_array($themeOptions) ? $themeOptions : [];
+                $address = isset($themeOptions['address']) && is_array($themeOptions['address']) ? $themeOptions['address'] : [];
+                $working = isset($themeOptions['working_time']) && is_array($themeOptions['working_time']) ? $themeOptions['working_time'] : [];
+                $email = !empty($themeOptions['email']) ? $themeOptions['email'] : '';
+                $phone = !empty($themeOptions['phone']) ? $themeOptions['phone'] : '';
+                ?>
                 
                 <div class="contact-page__info">
                     <div class="contact-page__info-row">
@@ -17,7 +25,15 @@ get_header(); ?>
                                 <h3 class="contact-page__info-title">Clinic Address:</h3>
                             </div>
                             <div class="contact-page__info-content">
-                                <p class="contact-page__info-text">Liudiškių g. 8, Anykščiai</p>
+                                <?php if (!empty($address['text']) || !empty($address['link'])): ?>
+                                <p class="contact-page__info-text">
+                                    <?php if (!empty($address['link']) && !empty($address['text'])): ?>
+                                        <a href="<?= esc_url($address['link']) ?>"><?= esc_html($address['text']) ?></a>
+                                    <?php else: ?>
+                                        <?= !empty($address['text']) ? esc_html($address['text']) : '' ?>
+                                    <?php endif; ?>
+                                </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         
@@ -26,10 +42,16 @@ get_header(); ?>
                                 <h3 class="contact-page__info-title">Phone and Email</h3>
                             </div>
                             <div class="contact-page__info-content">
+                                <?php if ($phone || $email): ?>
                                 <p class="contact-page__info-text">
-                                    +370 (616) 222 27<br>
-                                    info@rutosklinika.lt
+                                    <?php if ($phone): ?>
+                                        <a href="tel:<?= esc_attr($phone) ?>"><?= esc_html($phone) ?></a><br>
+                                    <?php endif; ?>
+                                    <?php if ($email): ?>
+                                        <a href="mailto:<?= esc_attr($email) ?>"><?= esc_html($email) ?></a>
+                                    <?php endif; ?>
                                 </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                         
@@ -38,10 +60,12 @@ get_header(); ?>
                                 <h3 class="contact-page__info-title">Work schedule</h3>
                             </div>
                             <div class="contact-page__info-content">
+                                <?php if (!empty($working['days']) || !empty($working['times'])): ?>
                                 <p class="contact-page__info-text">
-                                    Monday – Friday<br>
-                                    8:00 – 17:00
+                                    <?= !empty($working['days']) ? esc_html($working['days']) : '' ?><br>
+                                    <?= !empty($working['times']) ? esc_html($working['times']) : '' ?>
                                 </p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
