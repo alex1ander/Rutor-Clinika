@@ -57,7 +57,6 @@
 
   &__form {
     flex: 1;
-    max-width: 369px;
     background-color: $white;
     padding: $spacing-lg;
     border-radius: $border-radius-lg;
@@ -128,7 +127,7 @@
     margin-bottom: $spacing-xs;
   }
 
-  .form-input {
+  .form-input,.form-select {
     @include input-base;
     width: 100%;
 
@@ -140,37 +139,6 @@
   .form-phone {
     display: flex;
     gap: $spacing-sm;
-
-    .form-phone-code {
-      display: flex;
-      align-items: center;
-      gap: $spacing-sm;
-      padding: $spacing-md $spacing-lg;
-      background-color: $white;
-      border: 1px solid $input-border;
-      border-radius: $border-radius-md;
-      font-family: $font-family-primary;
-      font-size: $font-size-base;
-      color: $neutral-950;
-      min-width: 109px;
-      cursor: pointer;
-      transition: border-color $transition-fast;
-
-      &:hover {
-        border-color: $primary-color;
-      }
-
-      svg {
-        width: 16px;
-        height: 16px;
-        color: $primary-color;
-        transition: transform $transition-fast;
-      }
-
-      &:hover svg {
-        transform: rotate(180deg);
-      }
-    }
 
     .form-input {
       flex: 1;
@@ -203,4 +171,61 @@
   .contact__form {
     max-width: 400px;
   }
+}
+
+// Modal (generic)
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-modal;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+  }
+
+  &__dialog {
+    position: relative;
+    background: $white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    width: 100%;
+    max-width: 560px;
+    margin: 24px;
+    padding: $spacing-xl;
+
+    @include mobile {
+      padding: 12px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $neutral-100;
+    color: $neutral-600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 22px;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Open modal via hash target
+#contact-form:target.modal {
+  display: flex;
 }

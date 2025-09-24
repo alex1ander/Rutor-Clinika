@@ -203,6 +203,9 @@
 
   // Mobile Menu
   &__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100dvh;
     position: absolute;
     top: 0;

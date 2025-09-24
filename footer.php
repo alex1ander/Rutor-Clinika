@@ -182,6 +182,20 @@
             }
         });
     </script>
+
+    <!-- Contact Form Modal (opens on #contact-form) -->
+    <div id="contact-form" class="modal modal--contact" aria-hidden="true" role="dialog" aria-modal="true">
+        <a href="#" class="modal__overlay" aria-label="Close"></a>
+        <div class="modal__dialog" role="document">
+            <a href="#" class="modal__close" aria-label="Close">×</a>
+            <div class="modal__content">
+                <h2 class="modal__title">Contact us</h2>
+                
+                <?php get_template_part('template-parts/contact-form'); ?>
+            </div>
+        </div>
+    </div>
+
     <?php wp_footer(); ?>
 </body>
 </html>

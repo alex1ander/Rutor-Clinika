@@ -108,6 +108,11 @@ img {
   flex-direction: column!important;
 }
 
+.wpcf7-textarea{
+  width: 100%!important;
+  min-height: 120px;
+  height: 120px;
+}
 // Form elements
 .form {
   &-group {
@@ -121,7 +126,21 @@ img {
   &-input {
     @include input-base;
   }
+
+  &-select{
+    @include input-base;
+    width: auto!important;
+    padding: 16px 30px 16px 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+  }
   
+
   &-tabs {
     display: flex;
     border-bottom: 1px solid $border-color;

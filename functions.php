@@ -43,3 +43,32 @@ function mytheme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_styles' );
 
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+// Регистрация кастомного form-tag [time]
+add_action('wpcf7_init', function () {
+    wpcf7_add_form_tag('time', 'cf7_time_form_tag_handler', true);
+});
+
+// Рендер <input type="time">
+function cf7_time_form_tag_handler($tag) {
+    $tag = new WPCF7_FormTag($tag);
+
+    $atts = [];
+    $atts['size'] = $tag->get_size_option('40');
+    $atts['maxlength'] = $tag->get_maxlength_option();
+    $atts['minlength'] = $tag->get_minlength_option();
+    $atts['class'] = $tag->get_class_option('form-input');
+    $atts['id'] = $tag->get_id_option('preferred-time');
+    $atts['name'] = $tag->name;
+    $atts['type'] = 'time';
+
+    // placeholder (если задан)
+    if ($placeholder = $tag->get_option('placeholder', '','true')) {
+        $atts['placeholder'] = $placeholder;
+    }
+
+    $atts = wpcf7_format_atts($atts);
+
+    return sprintf('<input %s />', $atts);
+}
